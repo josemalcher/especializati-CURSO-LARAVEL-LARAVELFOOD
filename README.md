@@ -34,6 +34,17 @@ https://academy.especializati.com.br/curso/laravel-food
 
 ## <a name="parte1">1 - 01 - Introdução ao LaraFood</a>
 
+- 01 - Pré-requisito Curso LaraFood
+
+- 02 - Apresentação do Modelo de Tabelas do LaraFood
+
+![imgs/BancodeDados.png](imgs/BancodeDados.png)
+
+- 03 - Instalando o Laravel 6.x e Configurando
+
+- 04 - Versionando o LaraFood com o Git
+
+- 05 - Instalar o AdminLTE 3 no Laravel
 
 
 [Voltar ao Índice](#indice)
