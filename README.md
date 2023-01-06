@@ -42,6 +42,8 @@ https://academy.especializati.com.br/curso/laravel-food
 
 - 03 - Instalando o Laravel 6.x e Configurando
 
+- [larafood](larafood)
+
 - 04 - Versionando o LaraFood com o Git
 
 - 05 - Instalar o AdminLTE 3 no Laravel
