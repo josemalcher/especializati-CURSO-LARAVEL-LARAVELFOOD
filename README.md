@@ -89,6 +89,34 @@ class Plan extends Model
 
 - 02 - Organizar Rota e Preparar Listagem dos Planos no Laravel
 
+```php
+Route::get('admin/plans', [PlanController::class, 'index'])->name('plans.index');
+```
+
+- larafood/resources/views/admin/pages/plans/index.blade.php
+```php
+@extends('adminlte::page')
+
+@section('title', 'Planos')
+
+@section('content_header')
+    <h1>Planos</h1>
+@stop
+
+@section('content')
+    <p>Planos....</p>
+@stop
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+    <script> console.log('Hi!'); </script>
+@stop
+
+```
+
 - 03 - Listar os Planos do LaraFood
 
 - 04 - Paginar os Planos do LaraFood
