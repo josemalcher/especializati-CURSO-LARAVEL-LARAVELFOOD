@@ -48,6 +48,7 @@ https://academy.especializati.com.br/curso/laravel-food
 
 - 05 - Instalar o AdminLTE 3 no Laravel
 
+- https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Installation
 
 [Voltar ao Índice](#indice)
 
