@@ -57,6 +57,59 @@ https://academy.especializati.com.br/curso/laravel-food
 
 ## <a name="parte2">2 - 02 - Gestão de Planos</a>
 
+- 01 - Criar Model e Migration de Planos no Laravel
+
+```
+$ php artisan make:model Plan -m
+
+```
+
+```php
+    public function up()
+    {
+        Schema::create('plans', function (Blueprint $table) {
+            $table->id();
+            $table->string('name')->unique();
+            $table->string('url')->unique();
+            $table->double('price', 10, 2);
+            $table->string('description')->nullable();
+            $table->timestamps();
+        });
+    }
+```
+
+```php
+class Plan extends Model
+{
+    use HasFactory;
+
+    protected $fillable = ['name', 'url', 'price', 'description'];
+}
+```
+
+- 02 - Organizar Rota e Preparar Listagem dos Planos no Laravel
+
+- 03 - Listar os Planos do LaraFood
+
+- 04 - Paginar os Planos do LaraFood
+
+- 05 - Cadastrar Novo Plano no LaraFood
+
+- 06 - Mostrar Detalhes do Plano no LaraFood
+
+- 07 - Deletar o Plano no LaraFood
+
+- 08 - Pesquisar um plano no LaraFood
+
+- 09 - Breadcrumb no LaraFood
+
+- 10 - Melhorias no módulo de planos no LaraFood
+
+- 11 - Atualizar o plano do LaraFood
+
+- 12 - Validar Planos do LaraFood
+
+- 13 - Criar Observer de Plano no LaraFood
 
 
 [Voltar ao Índice](#indice)
