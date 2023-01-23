@@ -19,7 +19,7 @@ class PlanController extends Controller
 
     public function index()
     {
-        $plans = $this->repository->latest()->paginate(1);
+        $plans = $this->repository->latest()->paginate(3);
 
         return view('admin.pages.plans.index', [
             'plans' => $plans
@@ -44,16 +44,16 @@ class PlanController extends Controller
     public function show($url)
     {
         $plan = $this->repository->where('url', $url)->first();
-        if(!$plan){
+        if (!$plan) {
             return redirect()->back();
         }
-        return view('admin.pages.plans.show',['plan'=> $plan]);
+        return view('admin.pages.plans.show', ['plan' => $plan]);
     }
 
     public function destroy($url)
     {
         $plan = $this->repository->where('url', $url)->first();
-        if(!$plan){
+        if (!$plan) {
             return redirect()->back();
         }
         $plan->delete();
@@ -67,9 +67,31 @@ class PlanController extends Controller
 
         $plans = $this->repository->search($request->filter);
         return view('admin.pages.plans.index', [
-            'plans'=> $plans,
-            'filters' => $filters
+                'plans' => $plans,
+                'filters' => $filters
             ]
         );
+    }
+
+    public function edit($url)
+    {
+        $plan = $this->repository->where('url', $url)->first();
+        if (!$plan) {
+            return redirect()->back();
+        }
+        return view('admin.pages.plans.edit', [
+            'plan' => $plan
+        ]);
+    }
+
+    public function update(Request $request, $url)
+    {
+        $plan = $this->repository->where('url', $url)->first();
+        if (!$plan) {
+            return redirect()->back();
+        }
+        $plan->update($request->all());
+
+        return redirect()->route('plans.index');
     }
 }
