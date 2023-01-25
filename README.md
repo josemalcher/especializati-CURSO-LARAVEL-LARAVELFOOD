@@ -151,7 +151,14 @@ $ php artisan make:observer PlanObserver --model=Plan
 
 ## <a name="parte3">3 - 03 - Gestão de Detalhes do Plano</a>
 
-
+- 01 Organizar as Rotas de Admin no LaraFood
+- 02 Criar Model de Detalhes do Plano de Relacionamentos no LaraFood
+- 03 Listar os Detalhes do Plano no LaraFood
+- 04 Cadastrar Novo Detalhe Plano no LaraFood
+- 05 Editar o Detalhe do Plano no LaraFood
+- 06 Validar Detalhe do Plano no LaraFood
+- 07 Deletar Detalhes do Plano no LaraFood
+- 08 Não Permitir Deletar Plano com Detalhes no LaraFood
 
 [Voltar ao Índice](#indice)
 
