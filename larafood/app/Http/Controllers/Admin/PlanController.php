@@ -34,10 +34,9 @@ class PlanController extends Controller
 
     public function store(StoreUpdatePlan $request)
     {
-        //$this->repository->create($request->all());
-        $data = $request->all();
-        $data['url'] = Str::kebab($request->name);
-        $this->repository->create($data);
+//        $data = $request->all();
+//        $data['url'] = Str::kebab($request->name);
+        $this->repository->create($request->all());
 
         return redirect()->route('plans.index');
     }

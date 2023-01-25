@@ -139,6 +139,10 @@ Route::get('admin/plans', [PlanController::class, 'index'])->name('plans.index')
 
 - 13 - Criar Observer de Plano no LaraFood
 
+```
+$ php artisan make:observer PlanObserver --model=Plan
+
+```
 
 [Voltar ao Índice](#indice)
 
