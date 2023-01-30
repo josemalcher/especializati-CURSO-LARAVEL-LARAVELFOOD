@@ -37,6 +37,7 @@
                     <tr>
                         <td>{{$plan->name}}</td>
                         <td>{{$plan->price}}</td>
+                        <td><a href="{{route('details.plan.index', $plan->url)}}" class="btn btn-primary">Detalhes</a></td>
                         <td><a href="{{route('plans.edit', $plan->url)}}" class="btn btn-primary">Edit</a></td>
                         <td><a href="{{route('plans.show', $plan->url)}}" class="btn btn-warning">Ação</a></td>
                     </tr>

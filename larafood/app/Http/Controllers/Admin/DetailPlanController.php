@@ -25,7 +25,8 @@ class DetailPlanController extends Controller
         if (!$plan = $this->plan->where('url', $urlPlan)->first()) {
             return redirect()->back();
         }
-        $details = $plan->details();
+        // $details = $plan->details();
+        $details = $plan->details()->paginate();
         return view('admin.pages.plans.details.index', [
             'plan' => $plan,
             'details' => $details
