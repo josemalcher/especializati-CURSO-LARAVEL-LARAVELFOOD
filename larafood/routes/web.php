@@ -21,12 +21,11 @@ Route::prefix('admin')->group(function (){
      * Routes Details Plans
      *
      * */
-    Route::post('plans/{url}/details',
-        [DetailPlanController::class, 'store'])->name('details.plan.store');
-    Route::get('plans/{url}/details/create',
-        [DetailPlanController::class, 'create'])->name('details.plan.create');
-    Route::get('plans/{url}/details',
-        [DetailPlanController::class, 'index'])->name('details.plan.index');
+    Route::put('plans/{url}/details/{idDetail}', [DetailPlanController::class, 'update'])->name('details.plan.update');
+    Route::get('plans/{url}/details/{idDetail}/edit', [DetailPlanController::class, 'edit'])->name('details.plan.edit');
+    Route::post('plans/{url}/details', [DetailPlanController::class, 'store'])->name('details.plan.store');
+    Route::get('plans/{url}/details/create', [DetailPlanController::class, 'create'])->name('details.plan.create');
+    Route::get('plans/{url}/details', [DetailPlanController::class, 'index'])->name('details.plan.index');
 
 
     /*

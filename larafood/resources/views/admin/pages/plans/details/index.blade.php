@@ -27,9 +27,9 @@
                 <tbody>
                 @foreach($details as $detail)
                     <tr>
-                        <td>{{$plan->name}}</td>
-                        <td><a href="{{route('plans.edit', $plan->url)}}" class="btn btn-primary">Edit</a></td>
-                        <td><a href="{{route('plans.show', $plan->url)}}" class="btn btn-warning">Ação</a></td>
+                        <td>{{$detail->name}}</td>
+                        <td><a href="{{ route('details.plan.edit', [$plan->url, $detail->id]) }}" class="btn btn-primary">Edit</a></td>
+                        <td><a href="{{ route('plans.show', $plan->url)}}" class="btn btn-warning">Ação</a></td>
                     </tr>
                 @endforeach
                 </tbody>

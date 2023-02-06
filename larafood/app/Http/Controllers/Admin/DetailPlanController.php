@@ -11,9 +11,6 @@ class DetailPlanController extends Controller
 {
     protected $repository, $plan;
 
-    /**
-     * @param $repository
-     */
     public function __construct(DetailPlan $repository, Plan $plan)
     {
         $this->repository = $repository;
@@ -54,6 +51,34 @@ class DetailPlanController extends Controller
 //        $data['plan_id'] = $plan->id;
 //        $this->repository->create($data);
         $plan->details()->create($request->all());
+        return redirect()->route('details.plan.index', $plan->url);
+    }
+
+    public function edit($urlPlan, $idDetail)
+    {
+        $plan = $this->plan->where('url', $urlPlan)->first();
+        $detail = $this->repository->find($idDetail);
+
+        if (!$plan || !$detail) {
+            return redirect()->back();
+        }
+        return view('admin.pages.plans.details.edit', [
+            'plan'=> $plan,
+            'detail'=> $detail
+        ]);
+    }
+
+    public function update(Request $request, $urlPlan, $idDetail)
+    {
+        $plan = $this->plan->where('url', $urlPlan)->first();
+        $detail = $this->repository->find($idDetail);
+
+        if (!$plan || !$detail) {
+            return redirect()->back();
+        }
+
+        //dd($request->all());
+        $detail->update($request->all());
         return redirect()->route('details.plan.index', $plan->url);
     }
 
