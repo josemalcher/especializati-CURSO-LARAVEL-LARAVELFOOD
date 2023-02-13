@@ -167,7 +167,13 @@ $ php artisan make:observer PlanObserver --model=Plan
 
 ## <a name="parte4">4 - 04 - Perfis</a>
 
-
+- 01 Criar Model e Migration do Perfil no LaraFood
+- 02 Listar os Perfils no LaraFood
+- 03 Cadastrar Perfil no LaraFood
+- 04 Editar Perfil no LaraFood
+- 05 Validar Perfil no LaraFood
+- 06 Detalhes e Deletar Perfil no LaraFood
+- 07 Filtrar Perfis no LaraFood
 
 [Voltar ao Índice](#indice)
 

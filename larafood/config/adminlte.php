@@ -322,7 +322,12 @@ return [
         [
             'text' => 'Planos',
             'url'  => 'admin/plans',
-            'icon' => 'fas fa-fw fa-user',
+            'icon' => 'far fa-fw fa-file',
+        ],
+        [
+            'text' => 'Perfis',
+            'url'  => 'admin/profiles',
+            'icon' => 'fas fa-fw fa-address-book',
         ],
 //        [
 //            'text' => 'change_password',
