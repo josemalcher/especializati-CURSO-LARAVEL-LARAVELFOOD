@@ -329,6 +329,11 @@ return [
             'url'  => 'admin/profiles',
             'icon' => 'fas fa-fw fa-address-book',
         ],
+        [
+            'text' => 'Permissões',
+            'url'  => 'admin/permissions',
+            'icon' => 'fas fa-fw fa-address-book',
+        ],
 //        [
 //            'text' => 'change_password',
 //            'url'  => 'admin/settings',

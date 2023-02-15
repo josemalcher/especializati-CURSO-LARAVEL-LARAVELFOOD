@@ -182,7 +182,7 @@ $ php artisan make:observer PlanObserver --model=Plan
 
 ## <a name="parte5">5 - 05 - Permissões</a>
 
-
+01 - CRUD de Permissões - Speed Code
 
 [Voltar ao Índice](#indice)
 
