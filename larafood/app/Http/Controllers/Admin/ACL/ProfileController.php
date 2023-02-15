@@ -113,4 +113,20 @@ class ProfileController extends Controller
 
         return redirect()->route('profiles.index');
     }
+
+    public function search(Request $request)
+    {
+        $filters = $request->only('filter');
+
+        $profiles = $this->repository
+            ->where(function ($query) use($request){
+                if($request->filter){
+                    $query->where('name', $request->filter);
+                    $query->orWhere('description', 'LIKE', "%{$request->filter}%");
+                }
+            })
+            ->paginate();
+
+        return view('admin.pages.profiles.index', compact('profiles', 'filters'));
+    }
 }

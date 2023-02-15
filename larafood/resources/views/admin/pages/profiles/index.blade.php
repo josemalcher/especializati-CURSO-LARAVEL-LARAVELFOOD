@@ -14,7 +14,7 @@
     <div class="card">
         <div class="card-header">
                             <!--Ajustar em breve-->
-            <form action="{{route('plans.search')}}" method="POST" class="form form-inline">
+            <form action="{{route('profiles.search')}}" method="POST" class="form form-inline">
                 @csrf
                 <input type="text" name="filter"
                        placeholder="Nome"
