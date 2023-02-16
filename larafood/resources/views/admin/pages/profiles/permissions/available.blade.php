@@ -1,14 +1,13 @@
 @extends('adminlte::page')
 
-@section('title', 'Permissões do Perfil {$profile->name}')
+@section('title', 'Permissões Disponíveis para Perfil {$profile->name}')
 
 @section('content_header')
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Dashboard</a></li>
         <li class="breadcrumb-item active"><a href="{{route('profiles.index')}}">Perfis</a></li>
     </ol>
-    <h1>Permissões do Perfil {{$profile->name}}
-        <a href="{{route('profiles.permissions.available', $profile->id)}}" class="btn btn-dark">Adicionar Permissão</a></h1>
+    <h1>Permissões Disponíveis Para Perfil {{$profile->name}}
 @stop
 
 @section('content')
@@ -29,19 +28,24 @@
             <table class="table table-condensed">
                 <thead>
                 <tr>
+                    <th width="50px">#</th>
                     <th>Nome</th>
-                    <th>Ações</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($permissions as $permission)
-                    <tr>
-                        <td>{{$permission->name}}</td>
-                        <td>
-                            <a href="{{route('profiles.edit', $permission->id)}}" class="btn btn-primary">Edit</a>
-                        </td>
-                    </tr>
-                @endforeach
+                <form action="{{ route('profiles.permissions.attach', $profile->id) }}" method="POST">
+                    @csrf
+                    @foreach($permissions as $permission)
+                        <tr>
+                            <td><input type="checkbox" name="permissions[]" id="{{$permission->id}}" value="{{$permission->id}}"></td>
+                            <td>{{ $permission->name }}</td>
+                        </tr>
+                    @endforeach
+                        <tr>
+                            @include('admin.includes.alerts')
+                            <td colspan="500"><button type="submit" class="btn btn-success">Vincular</button></td>
+                        </tr>
+                </form>
                 </tbody>
             </table>
         </div>
