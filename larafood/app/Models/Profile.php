@@ -19,4 +19,20 @@ class Profile extends Model
         return $this->belongsToMany(Permission::class);
     }
 
+    public function permissionAvailable()
+    {
+// SELECT * FROM `permissions` WHERE id NOT IN (
+// SELECT permission_id FROM `permission_profile` WHERE profile_id = 1);
+        $permissions = Permission::whereNotIn('id', function($query) {
+            $query->select('permission_profile.permission_id');
+            $query->from('permission_profile');
+            $query->whereRaw("permission_profile.profile_id={$this->id}");
+        // })->toSql();
+        })->paginate();
+        // dd($permissions);
+// "select * from `permissions` where `id` not in (
+//  select `permission_profile`.`permission_id` from `permission_profile` where permission_profile.profile_id=1)"
+        return $permissions;
+    }
+
 }
