@@ -191,7 +191,12 @@ $ php artisan make:observer PlanObserver --model=Plan
 
 ## <a name="parte6">6 - 06 - Perfis x Permissões</a>
 
-
+- 01 Listar as Permissões de um Perfil no LaraFood
+- 02 Vincular Permissões ao Perfil no LaraFood
+- 03 Listar Apenas Permissões disponíveis para o perfil no LaraFood
+- 04 Filtrar Permissões disponíveis no LaraFood
+- 05 Desvincular Permissão do Perfil no LaraFood
+- 06 Listar Perfis da Permissão no LaraFood
 
 [Voltar ao Índice](#indice)
 

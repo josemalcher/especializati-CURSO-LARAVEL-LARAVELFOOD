@@ -4,7 +4,8 @@ use App\Http\Controllers\Admin\DetailPlanController;
 use App\Http\Controllers\Admin\PlanController;
 use App\Http\Controllers\Admin\ACL\{
     ProfileController,
-    PermissionController
+    PermissionController,
+    PermissionProfileController
 };
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +20,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::prefix('admin')->group(function () {
+
+
+    /*
+     * Routes Permissions_PROFILE
+     *
+     * */
+    Route::get('profiles/{id}/permissions', [PermissionProfileController::class, 'permissions'])->name('profiles.permissions');
 
 
     /*
