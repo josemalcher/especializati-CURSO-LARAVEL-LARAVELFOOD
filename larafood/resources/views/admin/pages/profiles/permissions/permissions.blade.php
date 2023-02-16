@@ -8,22 +8,13 @@
         <li class="breadcrumb-item active"><a href="{{route('profiles.index')}}">Perfis</a></li>
     </ol>
     <h1>Permissões do Perfil {{$profile->name}}
-        <a href="{{route('profiles.permissions.available', $profile->id)}}" class="btn btn-dark">Adicionar Permissão</a></h1>
+        <a href="{{route('profiles.permissions.available', $profile->id)}}" class="btn btn-dark">Adicionar Permissão</a>
+    </h1>
 @stop
 
 @section('content')
     <div class="card">
         <div class="card-header">
-            <!--Ajustar em breve-->
-            <form action="{{route('profiles.search')}}" method="POST" class="form form-inline">
-                @csrf
-                <input type="text" name="filter"
-                       placeholder="Nome"
-                       class="form-control"
-                       value="{{$filters['filter'] ?? ''}}"
-                >
-                <button type="submit" class="btn btn-dark">Filtrar</button>
-            </form>
         </div>
         <div class="card-body">
             <table class="table table-condensed">
@@ -38,7 +29,8 @@
                     <tr>
                         <td>{{$permission->name}}</td>
                         <td>
-                            <a href="{{route('profiles.edit', $permission->id)}}" class="btn btn-primary">Edit</a>
+                            <a href="{{route('profiles.permission.dettach', [$profile->id,$permission->id ])}}"
+                               class="btn btn-danger">Desvincular</a>
                         </td>
                     </tr>
                 @endforeach
