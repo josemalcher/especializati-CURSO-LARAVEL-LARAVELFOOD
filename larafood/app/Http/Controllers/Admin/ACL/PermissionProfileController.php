@@ -33,6 +33,20 @@ class PermissionProfileController extends Controller
             compact('permissions', 'profile'));
     }
 
+    public function profiles($idPermission)
+    {
+        $permission = $this->permission->find($idPermission);
+
+        if (!$permission) {
+            return redirect()->back();
+        }
+
+        $profiles = $permission->profiles()->paginate();
+
+        return view('admin.pages.permission.profiles.profiles',
+            compact('permission', 'profiles'));
+    }
+
     public function permissionAvailable(Request $request, $idProfile)
     {
         $profile = $this->profile->find($idProfile);
@@ -70,8 +84,8 @@ class PermissionProfileController extends Controller
 
     public function dettachPermissionProfile($idProfile, $idPersmission)
     {
-        $profile    = $this->profile    ->find($idProfile);
-        $permission = $this->permission ->find($idPersmission);
+        $profile = $this->profile->find($idProfile);
+        $permission = $this->permission->find($idPersmission);
         if (!$profile || !$permission) {
             return redirect()->back();
         }

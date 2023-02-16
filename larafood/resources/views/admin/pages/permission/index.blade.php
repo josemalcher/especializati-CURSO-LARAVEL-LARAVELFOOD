@@ -38,7 +38,8 @@
                         <td>{{$permission->name}}</td>
                         <td>
                             <a href="{{route('permissions.edit', $permission->id)}}" class="btn btn-primary">Edit</a>
-                            <a href="{{route('permissions.show', $permission->id)}}" class="btn btn-warning">Ação</a>
+                            <a href="{{route('permissions.show', $permission->id)}}" class="btn btn-warning">Detalhes</a>
+                            <a href="{{route('permissions.profiles', $permission->id)}}" class="btn btn-success">Perfis</a>
                         </td>
                     </tr>
                 @endforeach

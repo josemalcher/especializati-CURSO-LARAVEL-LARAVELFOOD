@@ -36,7 +36,9 @@ Route::prefix('admin')->group(function () {
         ->name('profiles.permissions.available');
     Route::get('profiles/{id}/permissions', [PermissionProfileController::class, 'permissions'])
         ->name('profiles.permissions');
-
+    /* Inverso Permissões ver perfil */
+    Route::get('permissions/{id}/profile', [PermissionProfileController::class, 'profiles'])
+        ->name('permissions.profiles');
 
     /*
      * Routes Permissions
