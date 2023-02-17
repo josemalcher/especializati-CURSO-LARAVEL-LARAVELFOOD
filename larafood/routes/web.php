@@ -5,7 +5,8 @@ use App\Http\Controllers\Admin\PlanController;
 use App\Http\Controllers\Admin\ACL\{
     ProfileController,
     PermissionController,
-    PermissionProfileController
+    PermissionProfileController,
+    PlanProfileController
 };
 use Illuminate\Support\Facades\Route;
 
@@ -22,23 +23,42 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('admin')->group(function () {
 
 
+    /**
+     * Plan x Profile
+     */
+    Route::get('plans/{id}/profile/{idProfile}/detach',
+        [PlanProfileController::class, 'detachProfilePlan'])->name('plans.profile.detach');
+
+    Route::post('plans/{id}/profiles',
+        [PlanProfileController::class, 'attachProfilesPlan'])->name('plans.profiles.attach');
+
+    Route::any('plans/{id}/profiles/create',
+        [PlanProfileController::class, 'profilesAvailable'])->name('plans.profiles.available');
+
+    Route::get('plans/{id}/profiles',
+        [PlanProfileController::class, 'profiles'])->name('plans.profiles');
+
+    Route::get('profiles/{id}/plans',
+        [PlanProfileController::class, 'plans'])->name('profiles.plans');
+
+
     /*
      * Routes Permissions_PROFILE
      *
      * */
-    Route::get('profiles/{id}/permission/{idPermission}/detach', [PermissionProfileController::class, 'dettachPermissionProfile'])
-        ->name('profiles.permission.dettach');
-    Route::post('profiles/{id}/permissions', [PermissionProfileController::class, 'attachPermissionProfile'])
-        ->name('profiles.permissions.attach');
+    Route::get('profiles/{id}/permission/{idPermission}/detach',
+        [PermissionProfileController::class, 'dettachPermissionProfile'])->name('profiles.permission.dettach');
+    Route::post('profiles/{id}/permissions',
+        [PermissionProfileController::class, 'attachPermissionProfile'])->name('profiles.permissions.attach');
 //    Route::any('profiles/{id}/permissions/create/search', [PermissionProfileController::class, 'filterPermissionAvaiable'])
 //        ->name('profiles.permissions.available.search');
-    Route::any('profiles/{id}/permissions/create', [PermissionProfileController::class, 'permissionAvailable'])
-        ->name('profiles.permissions.available');
-    Route::get('profiles/{id}/permissions', [PermissionProfileController::class, 'permissions'])
-        ->name('profiles.permissions');
+    Route::any('profiles/{id}/permissions/create',
+        [PermissionProfileController::class, 'permissionAvailable'])->name('profiles.permissions.available');
+    Route::get('profiles/{id}/permissions',
+        [PermissionProfileController::class, 'permissions'])->name('profiles.permissions');
     /* Inverso Permissões ver perfil */
-    Route::get('permissions/{id}/profile', [PermissionProfileController::class, 'profiles'])
-        ->name('permissions.profiles');
+    Route::get('permissions/{id}/profile',
+        [PermissionProfileController::class, 'profiles'])->name('permissions.profiles');
 
     /*
      * Routes Permissions

@@ -29,7 +29,7 @@
                 <tr>
                     <th>Nome</th>
                     <th>Preço</th>
-                    <th width="50">Ações</th>
+                    <th width="500">Ações</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -37,9 +37,10 @@
                     <tr>
                         <td>{{$plan->name}}</td>
                         <td>{{$plan->price}}</td>
-                        <td><a href="{{route('details.plan.index', $plan->url)}}" class="btn btn-primary">Detalhes</a></td>
-                        <td><a href="{{route('plans.edit', $plan->url)}}" class="btn btn-primary">Edit</a></td>
-                        <td><a href="{{route('plans.show', $plan->url)}}" class="btn btn-warning">Ação</a></td>
+                        <td><a href="{{route('details.plan.index', $plan->url)}}" class="btn btn-primary">Detalhes</a>
+                        <a href="{{route('plans.edit', $plan->url)}}" class="btn btn-primary">Edit</a>
+                        <a href="{{route('plans.show', $plan->url)}}" class="btn btn-warning">Ação</a>
+                        <a href="{{route('plans.profiles', $plan->id)}}" class="btn btn-warning">Profiles</a></td>
                     </tr>
                 @endforeach
                 </tbody>

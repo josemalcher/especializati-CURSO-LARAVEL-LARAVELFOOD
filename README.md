@@ -205,7 +205,7 @@ $ php artisan make:observer PlanObserver --model=Plan
 
 ## <a name="parte7">7 - 07 - Planos x Perfis</a>
 
-
+01 - Planos x Perfis - Speed Code
 
 [Voltar ao Índice](#indice)
 
